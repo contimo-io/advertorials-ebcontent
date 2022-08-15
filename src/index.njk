@@ -1,0 +1,40 @@
+---
+data: blogposts
+layout: layouts/base.njk
+---
+
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" id="main-css" href="/assets/css/front.css?v=20190507" media="all">
+<script src="/assets/ebcontent.js"></script>
+
+<section class="content" role="main">
+    <div class="row">
+        <div class="column fourth">
+            <ul class="list-items">
+            </ul>
+        </div>
+        <div class="column half">
+            <h3>ANNONCE - Alt indhold på dette site er sponsoreret indhold</h3>
+            <ul class="list-items">
+                {% for campaign in campaigns %}
+                <li class="frontpage-item">
+                    <span class="paid-mark">ANNONCE:</span>
+                    <a href="{{ campaign.slug }}" id="">
+                        {% if campaign.imageUrl %}
+                        <img
+                            src="{{campaign.imageUrl}}">
+                        {% endif %}
+                        <h3>{{ campaign.title }}</h3>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="column fourth">
+            <ul class="list-items">
+            </ul>
+        </div>
+    </div>
+</section>
+    
