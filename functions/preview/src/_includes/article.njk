@@ -1,0 +1,51 @@
+{% set content = article.content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" id="main-css" href="/assets/css/type_longread.css?v=201905071608" media="all">
+<script src="/assets/ebcontent.js"></script>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger">
+<label for="nav-trigger" class="fa fa-bars"></label>
+<nav class="slide-navigation">
+    <ul></ul>
+</nav>
+<div class="slide-site-wrap page">
+    <section class="article passpartou" role="article">
+        <article>
+            <div class="sponsorbox">
+                <span>Annoncørbetalt indhold</span>
+                {% if campaign.advertiser.image %}
+                <a href="{{ campaign.landingpage }}">
+                    <img class="sponsorbox-image" loading="lazy" src="{{ campaign.advertiser.imageUrlH40 }}" height="40" alt="{{ campaign.advertiser.name }}" />
+                </a>
+                {% else %}
+                <a href="{{ campaign.landingpage }}">
+                    {{ campaign.advertiser.name }}
+                </a>
+                {% endif %}
+                <a href="https://ekstrabladet.dk/om_ekstra_bladet/hvad-er-annoncoerbetalt-indhold/6001615">Hvad er Annoncørbetalt indhold?</a>
+            </div>
+            {% if content.imageUrl %}
+                <header class="header" role="header">
+                    <img class="image" src="{{ content.imageUrl }}"/>
+                </header>
+            {% endif %}
+            <div class="wallpaperbackground" id="wallpaperBackground"></div>
+            <section class="main-content pc-container content_after_wallpaper" role="main-content">
+                <div id="ebcontentMegaboard" class="megaboard" style="display: none;"></div>
+                <div class="bg_after_wallpaper">
+                    <div class="main article-longread">
+                        <div>ANNONCE:</div>
+                        <div>
+                            <h1>{{ content.title }}</h1>
+                            <h2>{{ content.teaser }}</h2>
+                        </div>
+                        <div class="bodytext">
+                            {{ content.contnetHtml | safe}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </section>
+</div>

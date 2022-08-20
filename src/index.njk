@@ -1,6 +1,5 @@
 ---
-data: blogposts
-layout: layouts/base.njk
+layout: layout.njk
 ---
 
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css">
@@ -21,11 +20,12 @@ layout: layouts/base.njk
                 <li class="frontpage-item">
                     <span class="paid-mark">ANNONCE:</span>
                     <a href="{{ campaign.slug }}" id="">
-                        {% if campaign.imageUrl %}
-                        <img
-                            src="{{campaign.imageUrl}}">
-                        {% endif %}
-                        <h3>{{ campaign.title }}</h3>
+                        {% cloudinaryImage 
+                            campaign.article.content.coverImage,
+                            "f_auto",
+                            campaign.article.content.headline
+                        %}
+                        <h3>{{ campaign.article.content.headline }}</h3>
                     </a>
                 </li>
                 {% endfor %}

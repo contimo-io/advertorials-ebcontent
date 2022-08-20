@@ -1,0 +1,3 @@
+{
+  "/preview/:id": "./src/preview.njk"
+}

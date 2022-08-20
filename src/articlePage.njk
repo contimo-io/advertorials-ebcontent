@@ -1,0 +1,14 @@
+---
+pagination:
+    data: campaigns
+    size: 1
+    alias: campaign
+
+permalink: ./{{ campaign.slug }}/index.html
+layout: layout.njk
+eleventyComputed:
+    title: "{{ campaign.article.content.title }} - ebcontent"
+
+---
+{% set article = campaign.article %}
+{% include "articleContent.njk" %}

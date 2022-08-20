@@ -1,0 +1,6 @@
+[[redirects]]
+from = "/preview/:id"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"

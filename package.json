@@ -10,7 +10,8 @@
     "graphql-request": "^4.3.0"
   },
   "scripts": {
-    "build": "eleventy --input src/"
+    "build": "eleventy --input src/",
+    "dev": "eleventy  --input src --serve"
   },
   "type": "commonjs"
 }

@@ -1,15 +1,4 @@
----
-pagination:
-    data: campaigns
-    size: 1
-    alias: campaign
-
-permalink: ./{{ campaign.slug }}/index.html
-layout: layouts/base.njk
-eleventyComputed:
-    title: "{{ campaign.article.content.title }} - ebcontent"
----
-{% set content = campaign.article.content %}
+{% set content = article.content %}
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" id="main-css" href="/assets/css/type_longread.css?v=201905071608" media="all">
