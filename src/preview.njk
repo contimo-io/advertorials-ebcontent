@@ -8,9 +8,24 @@ eleventyComputed:
 
 ---
 {%- set campaign = article.campaign %}
+
+
 {% include "articleContent.njk" %}
 <script>
-  const communicateNewHeight = function () {
+  var campaignId = "{{ campaign._id | e }}";
+  var articleId = "{{ article._id | e }}";
+  var pageTitle = "Preview / {{ campaign.name | e }} / v{{ article.versionNumber | e}}"
+  var pageLocation = `${window.location.origin}/preview/campaign/${campaignId}/article/${articleId}`;
+  var pageProps = {
+    page_title: pageTitle,
+    page_location: pageLocation,
+    contimo_campaign_id: campaignId,
+    contimo_article_id: articleId,
+    contimo_preview: true
+  };
+  gtag('event', 'page_view', pageProps);
+
+  var communicateNewHeight = function () {
     const message = {
       type: "setHeight",
       height: document.body.scrollHeight

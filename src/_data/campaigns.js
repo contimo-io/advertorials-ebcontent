@@ -4,12 +4,15 @@ require("dotenv").config();
 const query = gql`query GetPublishedCampaignsList($publisherId: MongoID!) {
     campaigns: PublishedCampaigns(filter: { publisherId: $publisherId }) {
       _id
+      name
       stage
       publisherId
       publicationDate
       landingpage
       slug
       article {
+        _id
+        versionNumber
         content {
           coverImage
           headline

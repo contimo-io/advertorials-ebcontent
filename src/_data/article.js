@@ -4,6 +4,7 @@ require("dotenv").config();
 const query = gql`query($id: MongoID!) {
   article: ArticleById(_id: $id) {
     campaign {
+      _id
       name
       trackingTag {
         tagType
@@ -15,6 +16,7 @@ const query = gql`query($id: MongoID!) {
         image
       }
     }
+    _id
     versionNumber
     content {
       headline

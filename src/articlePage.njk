@@ -12,3 +12,17 @@ eleventyComputed:
 ---
 {% set article = campaign.article %}
 {% include "articleContent.njk" %}
+<script>
+    var campaignId = "{{ campaign._id | e }}";
+    var articleId = "{{ article._id | e }}";
+    var pageTitle = "Active / {{ campaign.name | e }} / v{{ article.versionNumber | e}}"
+    var pageLocation = `${window.location.origin}/campaign/${campaignId}/article/${articleId}`;
+    var pageProps = {
+        page_title: pageTitle,
+        page_location: pageLocation,
+        contimo_campaign_id: campaignId,
+        contimo_article_id: articleId,
+        contimo_preview: false
+    };
+    gtag('event', 'page_view', pageProps);
+</script>
