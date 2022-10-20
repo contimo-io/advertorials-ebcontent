@@ -4,26 +4,23 @@ layout: layout.njk
 permalink:
   preview: /preview/:id
 eleventyComputed:
-    title: "Preview [{{ article.versionNumber }}] - {{ article.campaign.name }} - ebcontent"
+    title: "Preview - {{ article.campaign.name }} - [{{ article.versionNumber }}]"
 
 ---
 {%- set campaign = article.campaign %}
-
 
 {% include "articleContent.njk" %}
 <script>
   var campaignId = "{{ campaign._id | e }}";
   var articleId = "{{ article._id | e }}";
   var pageTitle = "Preview / {{ campaign.name | e }} / v{{ article.versionNumber | e}}"
-  var pageLocation = `${window.location.origin}/preview/campaign/${campaignId}/article/${articleId}`;
+
   var pageProps = {
     page_title: pageTitle,
-    page_location: pageLocation,
     contimo_campaign_id: campaignId,
     contimo_article_id: articleId,
     contimo_preview: true
   };
-  gtag('event', 'page_view', pageProps);
 
   var communicateNewHeight = function () {
     const message = {

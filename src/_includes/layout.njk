@@ -11,15 +11,6 @@
 
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga.tagId | e }}"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-
-            gtag('config', '{{ ga.tagId | e }}', {
-                send_page_view: false
-            });
 
             window.ebLog = (trackObject) => {
                 if (trackObject.level === 'ERROR') {
@@ -178,22 +169,24 @@
         data-cbid="d0ded67e-acef-45a1-9752-84167eeb8118" data-framework="IAB" type="text/javascript"></script>
 
         <!-- Longboat -->
-    <script>
-        window.longboat = window.longboat || {};
-        window.longboat.queue = window.longboat.queue || [];
+        <script>
+            window.longboat = window.longboat || {};
+            window.longboat.queue = window.longboat.queue || [];
 
-        window.longboat.queue.push(() => {
-            window.longboat.setEnvironment('production');
+            window
+                .longboat
+                .queue
+                .push(() => {
+                    window
+                        .longboat
+                        .setEnvironment('production');
 
-            window.longboat.setProperties({
-                aid: 2,
-                cid: '',
-                skid: '2206',
-                st: 'sec',
-            });
-        });
-    </script>
-{# 
+                    window
+                        .longboat
+                        .setProperties({aid: 2, cid: '', skid: '2206', st: 'sec'});
+                });
+        </script>
+        {# 
     <script async defer src="https://ebcontent.ekstrabladet.dk/ext_component/longboat/longboat.js?v=master-39"></script>
 
     <script src="https://acdn.adnxs.com/ast/ast.js?c="></script>
@@ -264,6 +257,19 @@
     <body>
 
         {{ content | safe }}
+
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', '{{ ga.tagId | e }}', {
+                ...(window.pageProps || {}),
+                debug_mode: {{ ga.debug_mode | e }}
+            });
+        </script>s
 
         <footer class="footer" role="footer">
             <p style="clear: both; overflow: hidden;">
