@@ -269,6 +269,18 @@
                 ...(window.pageProps || {}),
                 debug_mode: {{ ga.debug_mode | e }}
             });
+
+            document.addEventListener('click', function (e) {
+                if ((e.target.dataset || {}).action === 'cta') {
+                    gtag('event', 'click', {
+                        link_classes: e.target.className,
+                        link_domain: e.target.hostname,
+                        link_id: e.target.id,
+                        link_url: e.target.href,
+                        outbound: true
+                    })
+                }
+            })
         </script>
 
         <footer class="footer" role="footer">

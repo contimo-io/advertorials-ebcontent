@@ -20,12 +20,12 @@
                             campaign.advertiser.image,
                             "f_auto",
                             campaign.advertiser.name,
-                            { loading: 'lazy', 'class': 'sponsorbox-image', height: '40'}
+                            { loading: 'lazy', 'class': 'sponsorbox-image', height: '40', 'data-action': 'cta' }
                     %}
         
                 </a>
                 {% else %}
-                <a href="{{ campaign.landingpage }}" style="margin: 0 15px;">
+                <a href="{{ campaign.landingpage }}" style="margin: 0 15px;" data-action="cta">
                     {{ campaign.advertiser.name }}
                 </a>
                 {% endif %}
